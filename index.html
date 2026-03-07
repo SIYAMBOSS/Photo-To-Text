@@ -2,49 +2,61 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Watch Premium Video | HD Stream</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>StreamHub | Viral Premium Content</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body onclick="handleGlobalClick()">
 
-    <div id="ad-layer" onclick="handleAdClick()"></div>
-
-    <div class="player-wrapper">
-        <div class="header">
-            <span>🔴 LIVE - 1.2k Watching</span>
-        </div>
-        
-        <div class="fake-player">
-            <div class="play-overlay">
-                <div class="play-icon">▶</div>
+    <div class="app-shell">
+        <div class="main-player">
+            <div class="live-tag">● LIVE</div>
+            <div class="video-overlay">
+                <div class="play-trigger">▶</div>
                 <p>Click to start streaming</p>
             </div>
             
-            <div class="bottom-controls">
-                <div class="progress-bar"></div>
-                <div class="icons">
-                    <span>🔇</span>
-                    <span>⚙️</span>
-                    <span>⛶</span>
+            <div id="verify-modal" class="verify-popup">
+                <div class="modal-content">
+                    <h3>Human Verification</h3>
+                    <p>Click 'PLAY' to verify you are not a robot.</p>
+                    <button class="btn-main" onclick="handleGlobalClick()">START STREAMING</button>
                 </div>
             </div>
         </div>
 
-        <div class="video-info">
-            <h2>VIRAL: Private Video 2026.mp4</h2>
-            <div class="stats">
-                <span>Views: 845,921</span>
-                <span>Date: 2 hours ago</span>
-            </div>
+        <div class="video-details">
+            <h2>VIRAL: Private Video 2026_Full_HD.mp4</h2>
+            <div class="meta">1.2M Views • 1 hour ago</div>
         </div>
-    </div>
 
-    <div id="verify-modal" class="modal">
-        <div class="modal-box">
-            <h3>Human Verification</h3>
-            <p>You must click "Play" to verify you are not a robot.</p>
-            <button onclick="handleAdClick()">START STREAMING</button>
+        <hr class="divider">
+
+        <div class="recommendations">
+            <h3>Up Next / Recommended</h3>
+            
+            <div class="video-grid">
+                <div class="video-card" onclick="handleGlobalClick()">
+                    <div class="thumb" style="background-image: url('https://via.placeholder.com/200x120/111/fff?text=Video+2')">
+                        <span class="duration">12:45</span>
+                    </div>
+                    <div class="card-info">
+                        <h4>Leaked: Private_Session_02.mp4</h4>
+                        <p>652k Views</p>
+                    </div>
+                </div>
+
+                <div class="video-card" onclick="handleGlobalClick()">
+                    <div class="thumb" style="background-image: url('https://via.placeholder.com/200x120/111/fff?text=Video+3')">
+                        <span class="duration">08:20</span>
+                    </div>
+                    <div class="card-info">
+                        <h4>Hidden_Camera_Viral_HD.mp4</h4>
+                        <p>1.1M Views</p>
+                    </div>
+                </div>
+                
+                </div>
         </div>
     </div>
 
