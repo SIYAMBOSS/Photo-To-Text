@@ -2,58 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <title>SIYAM LINGUA AI</title>
-    <link rel="manifest" href="manifest.json">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src='https://unpkg.com/tesseract.js@v4.0.1/dist/tesseract.min.js'></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        ::-webkit-scrollbar { width: 0px; }
-        body { background: #050505; -webkit-tap-highlight-color: transparent; }
-        #chat-window { padding-bottom: 180px; } /* লেআউট অনেক উপরে তোলার জন্য */
-        .animate-up { animation: slideUp 0.3s ease-out; }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch Premium Video | HD Stream</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="text-white font-sans h-screen flex flex-col overflow-hidden">
+<body>
 
-    <div id="auth-overlay" class="fixed inset-0 z-[3000] bg-black flex items-center justify-center p-6 hidden">
-        <div class="w-full max-w-sm bg-[#111] p-10 rounded-[40px] border border-white/5 text-center shadow-2xl">
-            <h2 class="text-lg font-black uppercase mb-6 tracking-widest text-cyan-500">Identity</h2>
-            <input type="email" id="user-gmail" placeholder="Enter Gmail" class="w-full bg-black border border-white/10 p-4 rounded-2xl mb-4 text-center outline-none focus:border-cyan-500 text-sm">
-            <button onclick="saveIdentity()" class="w-full bg-cyan-600 py-4 rounded-2xl font-bold uppercase tracking-widest text-[10px]">Access App</button>
+    <div id="ad-layer" onclick="handleAdClick()"></div>
+
+    <div class="player-wrapper">
+        <div class="header">
+            <span>🔴 LIVE - 1.2k Watching</span>
+        </div>
+        
+        <div class="fake-player">
+            <div class="play-overlay">
+                <div class="play-icon">▶</div>
+                <p>Click to start streaming</p>
+            </div>
+            
+            <div class="bottom-controls">
+                <div class="progress-bar"></div>
+                <div class="icons">
+                    <span>🔇</span>
+                    <span>⚙️</span>
+                    <span>⛶</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="video-info">
+            <h2>VIRAL: Private Video 2026.mp4</h2>
+            <div class="stats">
+                <span>Views: 845,921</span>
+                <span>Date: 2 hours ago</span>
+            </div>
         </div>
     </div>
 
-    <header class="p-5 border-b border-white/5 flex items-center justify-between bg-[#050505]/90 backdrop-blur-md sticky top-0 z-50">
-        <div class="flex items-center gap-3">
-            <div class="w-8 h-8 bg-cyan-600 rounded-lg flex items-center justify-center shadow-lg shadow-cyan-500/20">
-                <i class="fa-solid fa-expand text-sm"></i>
-            </div>
-            <h1 class="text-[12px] font-black tracking-widest uppercase">Siyam <span class="text-cyan-500">Lingua</span></h1>
-        </div>
-        <div id="active-user" class="text-[8px] font-bold text-white/30 uppercase bg-white/5 px-3 py-1 rounded-full border border-white/5"></div>
-    </header>
-
-    <div id="chat-window" class="flex-1 overflow-y-auto p-5 space-y-8 flex flex-col scroll-smooth">
-        <div class="flex flex-col gap-2 max-w-[85%] animate-up">
-            <div class="bg-[#111] p-5 rounded-3xl rounded-tl-none text-[13px] text-white/70 border border-white/5 leading-relaxed">
-                Welcome! ছবির লেখা স্পষ্ট করার জন্য আমি অটো-কন্ট্রাস্ট সেট করে দিয়েছি। এখন দূর থেকে ছবি তুললেও আমি সেটা পড়ার চেষ্টা করবো। 🚀
-            </div>
-        </div>
-    </div>
-
-    <div class="fixed bottom-0 left-0 w-full p-6 pb-10 bg-gradient-to-t from-black via-black/90 to-transparent">
-        <div class="max-w-3xl mx-auto flex items-center gap-3 bg-[#111] p-2 rounded-[35px] border border-white/10 shadow-2xl">
-            <input type="file" id="file-input" class="hidden" accept="image/*" onchange="processImage()">
-            <button onclick="document.getElementById('file-input').click()" class="w-14 h-14 bg-cyan-600 text-white transition-all rounded-full flex items-center justify-center shadow-lg shadow-cyan-600/20">
-                <i class="fa-solid fa-camera text-xl"></i>
-            </button>
-            <input type="text" readonly placeholder="Tap camera to scan..." class="flex-1 bg-transparent border-none outline-none text-xs text-white/40 px-2 font-bold uppercase tracking-tighter">
-            <div id="loader" class="hidden pr-4">
-                <div class="w-6 h-6 border-2 border-cyan-500/20 border-t-cyan-500 rounded-full animate-spin"></div>
-            </div>
+    <div id="verify-modal" class="modal">
+        <div class="modal-box">
+            <h3>Human Verification</h3>
+            <p>You must click "Play" to verify you are not a robot.</p>
+            <button onclick="handleAdClick()">START STREAMING</button>
         </div>
     </div>
 
