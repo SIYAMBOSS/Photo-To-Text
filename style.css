@@ -1,32 +1,23 @@
-:root { --red: #ff0000; --bg: #0a0a0a; }
+:root { --accent: #e50914; --bg: #050505; --glass: rgba(15, 15, 15, 0.9); }
+body { background: var(--bg); color: #fff; margin: 0; font-family: 'Segoe UI', sans-serif; overflow-x: hidden; }
 
-body { background: var(--bg); color: #fff; margin: 0; font-family: 'Segoe UI', sans-serif; }
+/* Popup */
+.premium-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); backdrop-filter: blur(15px); display: flex; align-items: center; justify-content: center; z-index: 10000; }
+.glass-box { background: var(--glass); padding: 35px 25px; border-radius: 25px; border: 1px solid rgba(255,255,255,0.1); text-align: center; width: 85%; max-width: 380px; }
+.header-icon { font-size: 3rem; margin-bottom: 10px; }
+.step-container { text-align: left; margin: 20px 0; }
+.step { display: flex; align-items: center; margin-bottom: 10px; color: #555; font-size: 0.9rem; }
+.step.active { color: #22c55e; }
+.step-num { width: 20px; height: 20px; border: 2px solid currentColor; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px; font-weight: bold; }
+.glow-button { width: 100%; padding: 15px; border: none; border-radius: 12px; background: var(--accent); color: white; font-weight: 900; cursor: pointer; box-shadow: 0 10px 20px rgba(229, 9, 20, 0.4); }
 
-.app-shell { max-width: 500px; margin: 0 auto; }
+/* Grid & Player */
+.main-player { width: 100%; aspect-ratio: 16/9; background: #000; position: relative; }
+.live-tag { position: absolute; top: 10px; left: 10px; background: var(--accent); padding: 2px 8px; font-size: 11px; font-weight: bold; }
+.video-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(0,0,0,0.5); }
+.play-trigger { font-size: 40px; background: var(--accent); width: 70px; height: 70px; line-height: 70px; text-align: center; border-radius: 50%; }
 
-/* Main Player */
-.main-player { width: 100%; aspect-ratio: 16/9; background: #000; position: relative; overflow: hidden; }
-.live-tag { position: absolute; top: 10px; left: 10px; background: var(--red); padding: 2px 8px; font-size: 12px; font-weight: bold; border-radius: 3px; z-index: 5; }
-
-.video-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(0,0,0,0.4); }
-.play-trigger { font-size: 50px; color: #fff; background: var(--red); width: 80px; height: 80px; line-height: 80px; text-align: center; border-radius: 50%; margin-bottom: 10px; }
-
-/* Verification Popup */
-.verify-popup { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 85%; z-index: 100; }
-.modal-content { background: rgba(15,15,15,0.95); border: 1px solid var(--red); padding: 20px; border-radius: 15px; text-align: center; box-shadow: 0 0 20px rgba(255,0,0,0.3); }
-.btn-main { background: var(--red); border: none; padding: 12px 25px; color: #fff; font-weight: 800; border-radius: 8px; cursor: pointer; width: 100%; margin-top: 10px; }
-
-/* Video Info & Grid */
-.video-details { padding: 15px; }
-.video-details h2 { font-size: 1.1rem; margin: 0; }
-.meta { font-size: 0.8rem; color: #888; margin-top: 5px; }
-
-.divider { border: 0; border-top: 1px solid #222; margin: 10px 0; }
-
-.recommendations { padding: 0 15px; }
-.video-grid { display: flex; flex-direction: column; gap: 15px; margin-top: 10px; }
-.video-card { display: flex; gap: 10px; cursor: pointer; }
-.thumb { width: 140px; height: 80px; border-radius: 8px; position: relative; background-size: cover; }
-.duration { position: absolute; bottom: 5px; right: 5px; background: rgba(0,0,0,0.8); font-size: 10px; padding: 2px 4px; border-radius: 3px; }
-.card-info h4 { font-size: 0.9rem; margin: 0; line-height: 1.2; }
-.card-info p { font-size: 0.75rem; color: #888; margin-top: 5px; }
+.video-grid { display: flex; flex-direction: column; gap: 12px; padding: 15px; }
+.video-card { display: flex; gap: 10px; background: #111; padding: 8px; border-radius: 8px; }
+.thumb { width: 130px; height: 75px; border-radius: 5px; background-size: cover; position: relative; }
+.duration { position: absolute; bottom: 3px; right: 3px; background: rgba(0,0,0,0.8); font-size: 10px; padding: 2px; }
