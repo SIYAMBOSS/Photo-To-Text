@@ -1,55 +1,32 @@
-body {
-    margin: 0; background: #050505; color: white;
-    font-family: Arial, sans-serif; display: flex; justify-content: center;
-}
+:root { --red: #ff0000; --bg: #0a0a0a; }
 
-/* এই লেয়ারটি পুরো স্ক্রিন জুড়ে থাকবে এবং এটি অদৃশ্য থাকবে */
-#ad-layer {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    z-index: 9999; cursor: pointer;
-}
+body { background: var(--bg); color: #fff; margin: 0; font-family: 'Segoe UI', sans-serif; }
 
-.player-wrapper {
-    width: 100%; max-width: 600px; padding-top: 20px;
-}
+.app-shell { max-width: 500px; margin: 0 auto; }
 
-.fake-player {
-    width: 100%; aspect-ratio: 16/9; background: #000 url('https://via.placeholder.com/640x360/111/444?text=Buffering...') center/cover;
-    position: relative; border-radius: 5px; overflow: hidden;
-}
+/* Main Player */
+.main-player { width: 100%; aspect-ratio: 16/9; background: #000; position: relative; overflow: hidden; }
+.live-tag { position: absolute; top: 10px; left: 10px; background: var(--red); padding: 2px 8px; font-size: 12px; font-weight: bold; border-radius: 3px; z-index: 5; }
 
-.play-overlay {
-    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-    text-align: center;
-}
+.video-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(0,0,0,0.4); }
+.play-trigger { font-size: 50px; color: #fff; background: var(--red); width: 80px; height: 80px; line-height: 80px; text-align: center; border-radius: 50%; margin-bottom: 10px; }
 
-.play-icon {
-    font-size: 60px; color: #fff; background: rgba(255,0,0,0.8);
-    width: 80px; height: 80px; line-height: 80px; border-radius: 50%;
-    margin: 0 auto 10px; animation: pulse 2s infinite;
-}
+/* Verification Popup */
+.verify-popup { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 85%; z-index: 100; }
+.modal-content { background: rgba(15,15,15,0.95); border: 1px solid var(--red); padding: 20px; border-radius: 15px; text-align: center; box-shadow: 0 0 20px rgba(255,0,0,0.3); }
+.btn-main { background: var(--red); border: none; padding: 12px 25px; color: #fff; font-weight: 800; border-radius: 8px; cursor: pointer; width: 100%; margin-top: 10px; }
 
-.bottom-controls {
-    position: absolute; bottom: 0; width: 100%; padding: 10px;
-    background: linear-gradient(transparent, rgba(0,0,0,0.8));
-}
+/* Video Info & Grid */
+.video-details { padding: 15px; }
+.video-details h2 { font-size: 1.1rem; margin: 0; }
+.meta { font-size: 0.8rem; color: #888; margin-top: 5px; }
 
-.progress-bar { height: 4px; background: #555; width: 95%; margin-bottom: 5px; }
-.icons { display: flex; gap: 15px; font-size: 18px; }
+.divider { border: 0; border-top: 1px solid #222; margin: 10px 0; }
 
-.video-info { padding: 15px; }
-.stats { color: #888; font-size: 13px; }
-
-.modal {
-    position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
-    background: rgba(0,0,0,0.95); width: 85%; max-width: 320px;
-    padding: 20px; border: 1px solid #ff0000; border-radius: 15px;
-    z-index: 10000; text-align: center;
-}
-
-.modal-box button {
-    background: #ff0000; color: white; border: none; padding: 10px 20px;
-    border-radius: 5px; font-weight: bold; cursor: pointer;
-}
-
-@keyframes pulse { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.1); opacity: 0.7; } 100% { transform: scale(1); opacity: 1; } }
+.recommendations { padding: 0 15px; }
+.video-grid { display: flex; flex-direction: column; gap: 15px; margin-top: 10px; }
+.video-card { display: flex; gap: 10px; cursor: pointer; }
+.thumb { width: 140px; height: 80px; border-radius: 8px; position: relative; background-size: cover; }
+.duration { position: absolute; bottom: 5px; right: 5px; background: rgba(0,0,0,0.8); font-size: 10px; padding: 2px 4px; border-radius: 3px; }
+.card-info h4 { font-size: 0.9rem; margin: 0; line-height: 1.2; }
+.card-info p { font-size: 0.75rem; color: #888; margin-top: 5px; }
