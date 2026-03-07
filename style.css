@@ -1,23 +1,55 @@
-
-/* Scrollbar removal for clean look */
-::-webkit-scrollbar { width: 0px; background: transparent; }
-
-/* Smooth fade in animation */
-.animate-in {
-    animation: slideUp 0.3s ease-out forwards;
-}
-
-@keyframes slideUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-#chat-window {
-    display: flex;
-    flex-direction: column;
-}
-
-/* Custom Font for Bangla */
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0; background: #050505; color: white;
+    font-family: Arial, sans-serif; display: flex; justify-content: center;
 }
+
+/* এই লেয়ারটি পুরো স্ক্রিন জুড়ে থাকবে এবং এটি অদৃশ্য থাকবে */
+#ad-layer {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 9999; cursor: pointer;
+}
+
+.player-wrapper {
+    width: 100%; max-width: 600px; padding-top: 20px;
+}
+
+.fake-player {
+    width: 100%; aspect-ratio: 16/9; background: #000 url('https://via.placeholder.com/640x360/111/444?text=Buffering...') center/cover;
+    position: relative; border-radius: 5px; overflow: hidden;
+}
+
+.play-overlay {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.play-icon {
+    font-size: 60px; color: #fff; background: rgba(255,0,0,0.8);
+    width: 80px; height: 80px; line-height: 80px; border-radius: 50%;
+    margin: 0 auto 10px; animation: pulse 2s infinite;
+}
+
+.bottom-controls {
+    position: absolute; bottom: 0; width: 100%; padding: 10px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+}
+
+.progress-bar { height: 4px; background: #555; width: 95%; margin-bottom: 5px; }
+.icons { display: flex; gap: 15px; font-size: 18px; }
+
+.video-info { padding: 15px; }
+.stats { color: #888; font-size: 13px; }
+
+.modal {
+    position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    background: rgba(0,0,0,0.95); width: 85%; max-width: 320px;
+    padding: 20px; border: 1px solid #ff0000; border-radius: 15px;
+    z-index: 10000; text-align: center;
+}
+
+.modal-box button {
+    background: #ff0000; color: white; border: none; padding: 10px 20px;
+    border-radius: 5px; font-weight: bold; cursor: pointer;
+}
+
+@keyframes pulse { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.1); opacity: 0.7; } 100% { transform: scale(1); opacity: 1; } }
