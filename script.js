@@ -1,57 +1,46 @@
-// ১. তোমার Adsterra Direct Link
-const AD_LINK = "https://www.effectivegatecpm.com/t8pg9iar0?key=855ec9927c577f1ea619e109c15252e6";
+// ১. তোমার CPAGrip Tracking Link
+const MY_OFFER_LINK = "https://singingfiles.com/show.php?l=0&u=2506080&id=54746";
 
-// ২. বাংলাদেশি শর্ট টাইটেল লিস্ট
-const bdShortTitles = [
-    "Hot_Viral_BD",
-    "Desi_Bhabhi",
-    "Secret_Leaked",
-    "Viral_MMS_HD",
-    "Bhabi_Vlog",
-    "Dhaka_Night",
-    "Local_Video",
-    "Trending_BD"
-];
+// ২. ছোট ভাইরাল টাইটেল
+const bdShortTitles = ["Hot_Viral_BD", "Desi_MMS", "Secret_Leaked", "Bhabi_Vlog", "College_Viral"];
 
 function generateGrid() {
     const grid = document.getElementById('video-grid');
     if (!grid) return;
-    
     let html = '';
     for (let i = 1; i <= 60; i++) {
-        const title = bdShortTitles[Math.floor(Math.random() * bdShortTitles.length)];
-        const views = (Math.random() * 2 + 1).toFixed(1) + "M";
-        // পোর্ট্রেট ইমেজ দিয়ে ক্লিক বাড়ানো
-        const thumbID = i + 1500; 
-
+        const t = bdShortTitles[Math.floor(Math.random() * bdShortTitles.length)];
+        const thumbID = i + 3000;
         html += `
-            <div class="v-card" onclick="handleAdClick()">
+            <div class="v-card" onclick="openModal()">
                 <div class="v-thumb" style="background-image: url('https://picsum.photos/seed/${thumbID}/300/200')"></div>
                 <div class="v-info">
-                    <h4>${title}_Part_${i}.mp4</h4>
-                    <p>${views} views • Just Now</p>
+                    <h4>${t}_Part_${i}.mp4</h4>
+                    <p>${(Math.random()*3+1).toFixed(1)}M views • Just Now</p>
                 </div>
             </div>`;
     }
     grid.innerHTML = html;
 }
 
-// ৩. অ্যাড ক্লিক হ্যান্ডলার
-function handleAdClick() {
-    window.open(AD_LINK, '_blank');
+// ৩. পপ-আপ ওপেন করা
+function openModal() {
     document.getElementById('server-modal').style.display = 'flex';
+    setTimeout(() => {
+        document.getElementById('progress-bar').style.width = '85%';
+    }, 500);
 }
 
-function closeModal() {
-    document.getElementById('server-modal').style.display = 'none';
+// ৪. ভেরিফাই বাটনে ক্লিক করলে অফার লিঙ্কে যাবে
+function goToCPA() {
+    window.location.href = MY_OFFER_LINK;
 }
 
-// ৪. ব্যাক বাটন ট্র্যাপ
+// ৫. ব্যাক বাটন ট্র্যাপ (ইউজার বের হতে চাইলে অফার লিঙ্কে যাবে)
 (function() {
     window.history.pushState(null, null, window.location.href);
     window.onpopstate = function() {
-        window.open(AD_LINK, '_blank');
-        window.history.pushState(null, null, window.location.href);
+        window.location.href = MY_OFFER_LINK;
     };
 })();
 
