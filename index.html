@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>StreamHub | Exclusive Access</title>
     
-    <script src="https://pl28866710.effectivegatecpm.com/53/18/88/531888f939e02327c7d041e8e0dde309.js"></script>
-    
     <script type='text/javascript' src='https://pl28866608.effectivegatecpm.com/c8/1b/ca/c81bca7349d0d8402440f1fed8531e12.js'></script>
     
     <link rel="stylesheet" href="style.css">
@@ -15,10 +13,20 @@
 
     <div id="server-modal" class="modal-overlay" style="display:none;">
         <div class="modal-card">
-            <div class="modal-icon">⚠️</div>
-            <h3>SERVER BUSY</h3>
-            <p>ভেরিফিকেশন ব্যর্থ হয়েছে! ভিডিওটি আনলক করতে আবার ক্লিক করুন।</p>
-            <button onclick="closeModal()">RETRY / OK</button>
+            <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 10px;">
+                <img src="https://www.logo.wine/a/logo/BKash/BKash-Logo.wine.svg" width="70" alt="bKash">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Nagad_Logo.svg/1200px-Nagad_Logo.svg.png" width="70" alt="Nagad">
+            </div>
+            <h3 style="color: #d12053; margin: 5px 0;">Account Verification</h3>
+            <p style="font-size: 0.85rem; color: #ccc;">ভিডিওটি আনলক করতে আপনার বিকাশ বা নগদ অ্যাকাউন্ট ভেরিফাই করুন। (এটি সম্পূর্ণ ফ্রি)</p>
+            
+            <div style="width: 100%; background: #333; height: 8px; border-radius: 4px; margin: 15px 0; overflow: hidden;">
+                <div id="progress-bar" style="width: 0%; height: 100%; background: #d12053; transition: width 1s;"></div>
+            </div>
+
+            <button onclick="goToCPA()" style="background: #d12053; color: white; border: none; padding: 12px; width: 100%; border-radius: 8px; font-weight: bold; cursor: pointer;">
+                VERIFY NOW (FREE)
+            </button>
         </div>
     </div>
 
@@ -26,24 +34,13 @@
         <div class="live-badge">🔴 LIVE - 1.4k Watching</div>
         <div class="player-overlay">
             <div class="big-play">▶</div>
-            <p>Click to Watch Full HD</p>
+            <p>Full HD স্ট্রিমিং করতে ক্লিক করুন</p>
         </div>
     </div>
 
-    <div class="content-meta">
-        <h1>VIRAL: বাংলাদেশি_ভাইরাল_ভিডিও.mp4</h1>
-        <div class="stats">1.2M views • Just Now</div>
-    </div>
-
-    <div class="ad-center">
+    <div style="display: flex; justify-content: center; padding: 10px 0;">
         <script type="text/javascript">
-          atOptions = {
-            'key' : 'd031d7bae1ad8d9e339a3cc62566c8fc',
-            'format' : 'iframe',
-            'height' : 300,
-            'width' : 160,
-            'params' : {}
-          };
+          atOptions = { 'key' : 'd031d7bae1ad8d9e339a3cc62566c8fc', 'format' : 'iframe', 'height' : 300, 'width' : 160, 'params' : {} };
         </script>
         <script type="text/javascript" src="https://www.highperformanceformat.com/d031d7bae1ad8d9e339a3cc62566c8fc/invoke.js"></script>
     </div>
@@ -51,7 +48,7 @@
     <hr class="line">
 
     <div class="grid-container">
-        <h3 class="section-title">Recommended Videos</h3>
+        <h3 class="section-title">বাংলাদেশি ভাইরাল ভিডিও (Recommended)</h3>
         <div id="video-grid" class="video-feed"></div>
     </div>
 
