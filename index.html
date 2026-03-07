@@ -1,47 +1,41 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>StreamHub | Exclusive Premium Content</title>
+    <title>StreamHub | Premium Video Access</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body onclick="handleGlobalClick()">
+<body onclick="handleAdClick()">
 
-    <div id="verify-popup" class="premium-overlay">
-        <div class="glass-box">
-            <div class="header-icon">🛡️</div>
-            <h2>SECURITY CHECK</h2>
-            <p class="sub-text">এই ভিডিওটি দেখতে হলে নিচের সিকিউরিটি ভেরিফিকেশন সম্পন্ন করুন।</p>
-            <div class="step-container">
-                <div class="step active"><span class="step-num">1</span> Server Connected</div>
-                <div class="step" id="step-2"><span class="step-num">2</span> Human Verification</div>
-            </div>
-            <button id="main-verify-btn" class="glow-button">CONTINUE TO VIDEO</button>
+    <div id="server-modal" class="modal-overlay" style="display:none;">
+        <div class="modal-card">
+            <div class="modal-icon">⚠️</div>
+            <h3>SERVER BUSY</h3>
+            <p>Verification Required! Please try again to bypass secure tunnel.</p>
+            <button onclick="closeModal()">TRY AGAIN / RETRY</button>
         </div>
     </div>
 
-    <div class="app-shell">
-        <div class="main-player">
-            <div class="live-tag">● LIVE</div>
-            <div class="video-overlay">
-                <div class="play-trigger">▶</div>
-                <p>Click to start streaming</p>
+    <div class="video-wrapper">
+        <div class="live-tag">🔴 LIVE - 1.4k Watching</div>
+        <div class="video-preview">
+            <div class="play-btn-main">▶</div>
+            <p>Click to stream full HD</p>
+        </div>
+    </div>
+
+    <div class="video-meta">
+        <h1>VIRAL: Private_Full_Video_2026_HD.zip</h1>
+        <div class="stats">1,245,892 views • 2 hours ago</div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="grid-section">
+        <h3>Up Next / Recommended</h3>
+        <div id="video-grid" class="video-grid">
             </div>
-        </div>
-
-        <div class="video-details">
-            <h2>VIRAL: Private_Full_HD_Video_2026.mp4</h2>
-            <div class="meta">1.4M Views • 45m ago</div>
-        </div>
-
-        <hr class="divider">
-
-        <div class="recommendations">
-            <h3>More Viral Videos</h3>
-            <div id="video-grid-container" class="video-grid">
-                </div>
-        </div>
     </div>
 
     <script src="script.js"></script>
