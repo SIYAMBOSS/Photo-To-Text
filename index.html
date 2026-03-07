@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>StreamHub | Premium Video Access</title>
+    <title>StreamHub | Exclusive Premium Access</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body onclick="handleAdClick()">
@@ -12,29 +12,42 @@
         <div class="modal-card">
             <div class="modal-icon">⚠️</div>
             <h3>SERVER BUSY</h3>
-            <p>Verification Required! Please try again to bypass secure tunnel.</p>
-            <button onclick="closeModal()">TRY AGAIN / RETRY</button>
+            <p>Verification failed! Please try again to bypass secure tunnel and unlock video.</p>
+            <button onclick="closeModal()">RETRY CONNECTION</button>
         </div>
     </div>
 
-    <div class="video-wrapper">
-        <div class="live-tag">🔴 LIVE - 1.4k Watching</div>
-        <div class="video-preview">
-            <div class="play-btn-main">▶</div>
-            <p>Click to stream full HD</p>
+    <div class="video-container">
+        <div class="live-badge">🔴 LIVE - 1.4k Watching</div>
+        <div class="player-overlay">
+            <div class="big-play">▶</div>
+            <p>Click to stream in Full HD</p>
         </div>
     </div>
 
-    <div class="video-meta">
-        <h1>VIRAL: Private_Full_Video_2026_HD.zip</h1>
+    <div class="content-meta">
+        <h1>VIRAL: Private_Full_HD_Video_2026.mp4</h1>
         <div class="stats">1,245,892 views • 2 hours ago</div>
     </div>
 
-    <hr class="divider">
+    <div class="ad-slot">
+        <script type="text/javascript">
+            atOptions = {
+                'key' : '9a4c8428dfddb907d134cd3939c53ddd',
+                'format' : 'iframe',
+                'height' : 60,
+                'width' : 468,
+                'params' : {}
+            };
+        </script>
+        <script type="text/javascript" src="https://www.highperformanceformat.com/9a4c8428dfddb907d134cd3939c53ddd/invoke.js"></script>
+    </div>
 
-    <div class="grid-section">
-        <h3>Up Next / Recommended</h3>
-        <div id="video-grid" class="video-grid">
+    <hr class="line">
+
+    <div class="grid-container">
+        <h3 class="section-title">Up Next / Recommended</h3>
+        <div id="video-grid" class="video-feed">
             </div>
     </div>
 
