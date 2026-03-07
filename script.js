@@ -1,18 +1,22 @@
 // তোমার Adsterra Direct Link এখানে বসাও
 const AD_LINK = "YOUR_ADSTERRA_DIRECT_LINK_HERE";
 
-function handleAdClick() {
+function handleGlobalClick() {
     // ১. নতুন ট্যাবে অ্যাড ওপেন হবে
     window.open(AD_LINK, '_blank');
-    
-    // ২. মেইন পেজটি রিফ্রেশ হবে বা ইউজারকে অন্য একটি ফেক পেজে রাখবে
-    // যাতে সে মনে করে লোডিং হচ্ছে
-    document.querySelector('.play-overlay p').innerText = "Loading video server...";
-    
+
+    // ২. পেজে একটি "Loading" ইফেক্ট দেখানো যেন ইউজার মনে করে ভিডিও আসছে
+    const btn = document.querySelector('.btn-main');
+    if(btn) btn.innerText = "CONNECTING TO SERVER...";
+
+    // ৩. ইউজারের সাইকোলজি নিয়ে খেলা: ২ সেকেন্ড পর মেসেজ দেওয়া
     setTimeout(() => {
-        alert("Verification Required: Click Play again to confirm you are 18+");
-    }, 2000);
+        alert("Server Busy! Please try again to unlock this private video.");
+        if(btn) btn.innerText = "TRY AGAIN (PLAY)";
+    }, 3000);
 }
 
-// মাউস ক্লিক ছাড়াও কোনো কি-বোর্ড প্রেস করলেও অ্যাড ওপেন হবে
-document.addEventListener('keydown', handleAdClick);
+// সে যদি ব্যাক করার চেষ্টা করে, তবে তাকে আবার সতর্ক করা
+window.onbeforeunload = function() {
+    return "Are you sure you want to leave without watching?";
+};
